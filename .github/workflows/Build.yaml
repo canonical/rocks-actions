@@ -14,7 +14,7 @@ jobs:
   build:
     strategy:
       matrix: ${{ fromJSON(inputs.build-matrix) }}
-    uses: canonical/oci-factory/.github/workflows/Build-Rock.yaml@f217eb0acc0d0359c4c8afa772a263ca069bb656 # main
+    uses: canonical/oci-factory/.github/workflows/Build-Rock.yaml@79134cb5c65f03bc169e34bc636fad07106cc620 # main
     with:
       rock-repo: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
       rock-repo-commit: ${{ github.head_ref || github.ref_name }}
