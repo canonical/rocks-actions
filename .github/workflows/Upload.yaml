@@ -31,7 +31,7 @@ jobs:
 
         - name: Upload Rock to GHCR
           if: ${{ github.event.repository.visibility != 'public' || matrix.pro-services == '' }}
-          uses: canonical/oci-factory/.github/actions/upload-rock@f217eb0acc0d0359c4c8afa772a263ca069bb656 # main
+          uses: canonical/oci-factory/.github/actions/upload-rock@79134cb5c65f03bc169e34bc636fad07106cc620 # main
           with:
             artifact_name: ${{ matrix.artifact-name }}
             tags: ${{ matrix.tag }}
@@ -64,7 +64,7 @@ jobs:
             echo "aws-session-token=$session_token" >> $GITHUB_OUTPUT
 
         - name: Upload Rock to ECR
-          uses: canonical/oci-factory/.github/actions/upload-rock@f217eb0acc0d0359c4c8afa772a263ca069bb656 # main
+          uses: canonical/oci-factory/.github/actions/upload-rock@79134cb5c65f03bc169e34bc636fad07106cc620 # main
           if: ${{ contains(matrix.registry-auth-method, 'ecr') }}
           with:
             artifact_name: ${{ matrix.artifact-name }}
@@ -76,7 +76,7 @@ jobs:
             decrypt-passphrase: ${{ secrets[matrix.pro-artifact-passphrase] }}
 
         - name: Upload Rock to Registry
-          uses: canonical/oci-factory/.github/actions/upload-rock@f217eb0acc0d0359c4c8afa772a263ca069bb656 # main
+          uses: canonical/oci-factory/.github/actions/upload-rock@79134cb5c65f03bc169e34bc636fad07106cc620 # main
           if: matrix.registry-auth-method == 'basic'
           with:
             artifact_name: ${{ matrix.artifact-name }}
