@@ -29,7 +29,7 @@ jobs:
     needs: [read-config]
     if: |
       needs.read-config.outputs.ghcr-scanning == 'true'
-    uses: canonical/oci-factory/.github/workflows/Vulnerability-Scan.yaml@f217eb0acc0d0359c4c8afa772a263ca069bb656 # main
+    uses: canonical/oci-factory/.github/workflows/Vulnerability-Scan.yaml@4f112a090d0de5c1b6acd072e4ab53353fb50977 # main
     strategy:
       matrix: ${{ fromJson(needs.read-config.outputs.build-matrix) }}
     with:
